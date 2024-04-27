@@ -2,3 +2,4 @@ streamlit==1.33.0
 openai==1.23.6
 python-aiconfig==1.1.32
 python-dotenv
+FastAPI==23.9.0
