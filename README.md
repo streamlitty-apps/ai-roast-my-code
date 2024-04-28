@@ -1,21 +1,25 @@
-# AI, Roast My Code
+AI, Roast My Code
+==============================
 
 AI, Roast My Code is a web application designed to assess and improve users' Python coding skills—with a fun twist. This proposal describes the development and deployment of a Streamlit application powered by AIConfig.
 
-## Prerequisites
+Prerequisites
+------------
+- [OpenAI API-KEY](https://platform.openai.com/docs/api-reference/api-keys)
 
-To get started with AI, Roast My Code, make sure you have installed all dependencies listed in `requirements.txt`. To install these, run:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Setting Up Your Development Environment
+Setting Up Your Development Environment
+------------
 
 Clone the Repository to your local machine:
 
 ```bash
 git clone https://github.com/yourusername/AI_Roast_My_Code.git
+```
+
+Install the necessary dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
 Creating a Branch:
@@ -47,6 +51,10 @@ git push --set-upstream origin feature/YourAmazingFeature
 1. Only the first commit will request the command above. For any other push to the remote repository you can do a simple `git push`.
 2. If you already have a branch or is starting to work with the `main` one, it's a good practice to execute `git pull` to sync the code.
 
+Running Unit Tests
+------------
+1. `python -m unittest test_openai_client.py`
+
 Project Organization
 ------------
 
@@ -62,6 +70,6 @@ Below is a breakdown of the files in this project, with additional information t
     |
     └── LICENSE                 <- The license file containing the terms of use for the project
 
-## License
-
+License
+------------
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
