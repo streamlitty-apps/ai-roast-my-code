@@ -1,5 +1,5 @@
 import streamlit as st
-from openai_client import validate_openai_api_key
+from helpers.openai_client import validate_openai_api_key
 
 
 def run_streamlit_app():

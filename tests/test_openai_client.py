@@ -1,10 +1,10 @@
 import unittest
 from unittest.mock import patch, MagicMock, Mock
-from openai_client import validate_openai_api_key, get_openai_client
+from app.helpers.openai_client import get_openai_client, validate_openai_api_key
 
 
 class TestValidateOpenAIKey(unittest.TestCase):
-    @patch("openai_client.OpenAI")
+    @patch("app.helpers.openai_client.OpenAI")
     def test_valid_api_key(self, mock_openai):
         mock_client = MagicMock()
         mock_openai.return_value = mock_client
@@ -21,7 +21,7 @@ class TestValidateOpenAIKey(unittest.TestCase):
             n=1,
         )
 
-    @patch("openai_client.OpenAI")
+    @patch("app.helpers.openai_client.OpenAI")
     def test_invalid_api_key(self, mock_openai):
         mock_client = MagicMock()
         mock_openai.return_value = mock_client
@@ -46,7 +46,7 @@ class TestValidateOpenAIKey(unittest.TestCase):
         result = validate_openai_api_key(12345)
         self.assertFalse(result)
 
-    @patch("openai_client.OpenAI")
+    @patch("app.helpers.openai_client.OpenAI")
     def test_error_handling(self, mock_openai):
         mock_client = Mock()
         mock_openai.return_value = mock_client

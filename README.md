@@ -3,24 +3,19 @@ AI, Roast My Code
 
 AI, Roast My Code is a web application designed to assess and improve users' Python coding skills—with a fun twist. This proposal describes the development and deployment of a Streamlit application powered by AIConfig.
 
-Prerequisites
+Requirements
 ------------
 - [OpenAI API-KEY](https://platform.openai.com/docs/api-reference/api-keys)
 
+Getting Started
+------------
+1. `git clone git@github.com:streamlitty-apps/tech-interview-assistant.git`
+2. `cd tech-interview-assistant`
+3. `pip install -r requirements.txt`
+4. `streamlit run app/streamlit_app.py`
+
 Setting Up Your Development Environment
 ------------
-
-Clone the Repository to your local machine:
-
-```bash
-git clone https://github.com/yourusername/AI_Roast_My_Code.git
-```
-
-Install the necessary dependencies:
-
-```bash
-pip install -r requirements.txt
-```
 
 Creating a Branch:
 
@@ -53,22 +48,28 @@ git push --set-upstream origin feature/YourAmazingFeature
 
 Running Unit Tests
 ------------
-1. `python -m unittest test_openai_client.py`
+1. `python -m unittest tests/test_openai_client.py`
 
 Project Organization
 ------------
 
 Below is a breakdown of the files in this project, with additional information to help you understand their roles and how they fit into the overall structure:
 
-    ├── streamlit_app.py        <- This is the main file that runs the Streamlit app
+    ├── app/
+    │   ├── helpers/
+    │   │   └── openai_client.py <- Helper module for interacting with OpenAI services
+    │   └── streamlit_app.py     <- This is the main file that runs the Streamlit app
     |
-    ├── requirements.txt        <- A list of Python packages that the project depends on
+    ├── tests/
+    │   └── test_openai_client.py <- Test file for the openai_client module
     |
-    ├── README.md               <- The main README file for the project to help you get started
+    ├── requirements.txt         <- A list of Python packages that the project depends on
     |
-    ├── .gitignore              <- This file tells Git which files and directories to ignore
+    ├── README.md                <- The main README file to help you get started
     |
-    └── LICENSE                 <- The license file containing the terms of use for the project
+    ├── .gitignore               <- This file tells Git which files and directories to ignore
+    |
+    └── LICENSE                  <- The license file containing the terms of use for the project
 
 License
 ------------
