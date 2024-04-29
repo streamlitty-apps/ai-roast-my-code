@@ -9,8 +9,8 @@ Requirements
 
 Getting Started
 ------------
-1. `git clone git@github.com:streamlitty-apps/tech-interview-assistant.git`
-2. `cd tech-interview-assistant`
+1. `git clone git@github.com:streamlitty-apps/ai-roast-my-code.git`
+2. `cd ai-roast-my-code`
 3. `pip install -r requirements.txt`
 4. `streamlit run app/streamlit_app.py`
 
