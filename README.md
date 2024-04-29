@@ -1,22 +1,21 @@
-# AI, Roast My Code
+AI, Roast My Code
+==============================
 
 AI, Roast My Code is a web application designed to assess and improve users' Python coding skills—with a fun twist. This proposal describes the development and deployment of a Streamlit application powered by AIConfig.
 
-## Prerequisites
+Requirements
+------------
+- [OpenAI API-KEY](https://platform.openai.com/docs/api-reference/api-keys)
 
-To get started with AI, Roast My Code, make sure you have installed all dependencies listed in `requirements.txt`. To install these, run:
+Getting Started
+------------
+1. `git clone git@github.com:streamlitty-apps/tech-interview-assistant.git`
+2. `cd tech-interview-assistant`
+3. `pip install -r requirements.txt`
+4. `streamlit run app/streamlit_app.py`
 
-```bash
-pip install -r requirements.txt
-```
-
-## Setting Up Your Development Environment
-
-Clone the Repository to your local machine:
-
-```bash
-git clone https://github.com/yourusername/AI_Roast_My_Code.git
-```
+Setting Up Your Development Environment
+------------
 
 Creating a Branch:
 
@@ -47,21 +46,31 @@ git push --set-upstream origin feature/YourAmazingFeature
 1. Only the first commit will request the command above. For any other push to the remote repository you can do a simple `git push`.
 2. If you already have a branch or is starting to work with the `main` one, it's a good practice to execute `git pull` to sync the code.
 
+Running Unit Tests
+------------
+1. `python -m unittest tests/test_openai_client.py`
+
 Project Organization
 ------------
 
 Below is a breakdown of the files in this project, with additional information to help you understand their roles and how they fit into the overall structure:
 
-    ├── streamlit_app.py        <- This is the main file that runs the Streamlit app
+    ├── app/
+    │   ├── helpers/
+    │   │   └── openai_client.py <- Helper module for interacting with OpenAI services
+    │   └── streamlit_app.py     <- This is the main file that runs the Streamlit app
     |
-    ├── requirements.txt        <- A list of Python packages that the project depends on
+    ├── tests/
+    │   └── test_openai_client.py <- Test file for the openai_client module
     |
-    ├── README.md               <- The main README file for the project to help you get started
+    ├── requirements.txt         <- A list of Python packages that the project depends on
     |
-    ├── .gitignore              <- This file tells Git which files and directories to ignore
+    ├── README.md                <- The main README file to help you get started
     |
-    └── LICENSE                 <- The license file containing the terms of use for the project
+    ├── .gitignore               <- This file tells Git which files and directories to ignore
+    |
+    └── LICENSE                  <- The license file containing the terms of use for the project
 
-## License
-
+License
+------------
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
