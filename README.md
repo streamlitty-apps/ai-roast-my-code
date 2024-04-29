@@ -1,5 +1,4 @@
-AI, Roast My Code
-==============================
+# **AI, Roast My Code**
 
 AI, Roast My Code is a web application designed to assess and improve users' Python coding skills—with a fun twist. This proposal describes the development and deployment of a Streamlit application powered by AIConfig.
 
