@@ -1,4 +1,4 @@
-# AI, Roast My Code
+# **AI, Roast My Code**
 
 AI, Roast My Code is a web application designed to assess and improve users' Python coding skills—with a fun twist. This proposal describes the development and deployment of a Streamlit application powered by AIConfig.
 
@@ -47,8 +47,7 @@ git push --set-upstream origin feature/YourAmazingFeature
 1. Only the first commit will request the command above. For any other push to the remote repository you can do a simple `git push`.
 2. If you already have a branch or is starting to work with the `main` one, it's a good practice to execute `git pull` to sync the code.
 
-Project Organization
-------------
+## Project Organization
 
 Below is a breakdown of the files in this project, with additional information to help you understand their roles and how they fit into the overall structure:
 
