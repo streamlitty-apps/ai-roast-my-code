@@ -1,58 +1,48 @@
 import unittest
 from unittest.mock import patch, MagicMock, Mock
-from app.helpers.openai_client import get_openai_client, validate_openai_api_key
+from app.helpers.openai_client import get_openai_client, validate_anyscale_api_key
 
 
-class TestValidateOpenAIKey(unittest.TestCase):
+class TestValidateAnyscaleKey(unittest.TestCase):
     @patch("app.helpers.openai_client.OpenAI")
     def test_valid_api_key(self, mock_openai):
         mock_client = MagicMock()
         mock_openai.return_value = mock_client
-        mock_client.chat.completions.create.return_value = "response"
+        mock_client.models.list.return_value = "response"
 
-        result = validate_openai_api_key("valid_api_key")
+        result = validate_anyscale_api_key("valid_api_key")
 
         self.assertTrue(result)
-        mock_openai.assert_called_once_with(api_key="valid_api_key")
-        mock_client.chat.completions.create.assert_called_once_with(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": "this is a test"}],
-            max_tokens=1,
-            n=1,
-        )
+        mock_openai.assert_called_once_with(api_key="valid_api_key", base_url="https://api.endpoints.anyscale.com/v1")
+        mock_client.models.list.assert_called_once()
 
     @patch("app.helpers.openai_client.OpenAI")
     def test_invalid_api_key(self, mock_openai):
         mock_client = MagicMock()
         mock_openai.return_value = mock_client
-        mock_client.chat.completions.create.side_effect = Exception()
+        mock_client.models.list.side_effect = Exception()
 
-        result = validate_openai_api_key("invalid_api_key")
+        result = validate_anyscale_api_key("invalid_api_key")
 
         self.assertFalse(result)
-        mock_openai.assert_called_once_with(api_key="invalid_api_key")
-        mock_client.chat.completions.create.assert_called_once_with(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": "this is a test"}],
-            max_tokens=1,
-            n=1,
-        )
+        mock_openai.assert_called_once_with(api_key="valid_api_key", base_url="https://api.endpoints.anyscale.com/v1")
+        mock_client.models.list.assert_called_once()
 
     def test_empty_api_key(self):
-        result = validate_openai_api_key("")
+        result = validate_anyscale_api_key("")
         self.assertFalse(result)
 
     def test_invalid_format_api_key(self):
-        result = validate_openai_api_key(12345)
+        result = validate_anyscale_api_key(12345)
         self.assertFalse(result)
 
     @patch("app.helpers.openai_client.OpenAI")
     def test_error_handling(self, mock_openai):
         mock_client = Mock()
         mock_openai.return_value = mock_client
-        mock_client.chat.completions.create.side_effect = ValueError()
+        mock_client.models.list.side_effect = ValueError()
 
-        result = validate_openai_api_key("invalid_api_key")
+        result = validate_anyscale_api_key("invalid_api_key")
 
         self.assertFalse(result)
 
