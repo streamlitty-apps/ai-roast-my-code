@@ -1,5 +1,4 @@
-AI, Roast My Code
-==============================
+# **AI, Roast My Code**
 
 AI, Roast My Code is a web application designed to assess and improve users' Python coding skills—with a fun twist. This proposal describes the development and deployment of a Streamlit application powered by AIConfig.
 
@@ -9,8 +8,8 @@ Requirements
 
 Getting Started
 ------------
-1. `git clone git@github.com:streamlitty-apps/tech-interview-assistant.git`
-2. `cd tech-interview-assistant`
+1. `git clone git@github.com:streamlitty-apps/ai-roast-my-code.git`
+2. `cd ai-roast-my-code`
 3. `pip install -r requirements.txt`
 4. `streamlit run app/streamlit_app.py`
 
