@@ -39,7 +39,7 @@ async def run_streamlit_app():
             st.error("Question input is empty")
         else:
             with st.spinner('Pondering your question...'):
-                context = run_query(question_input, "pep8_guidelines", 5)
+                context = run_query(question_input, "pep8_guidelines", 2)
                 result = await generate_answer(context, question_input)
                 st.write(result)
 
