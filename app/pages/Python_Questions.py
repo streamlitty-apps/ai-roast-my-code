@@ -3,7 +3,7 @@ import os
 import asyncio
 from helpers.openai_client import validate_anyscale_api_key
 from aiconfig import AIConfigRuntime
-from chromadb_utils.helpers.chromadb_helpers import run_query
+from chromadb_utils.chromadb_helpers import run_query
 
 async def run_streamlit_app():
     st.header("AI, Answer My Python Questions!")
@@ -13,7 +13,7 @@ async def run_streamlit_app():
         is_valid = validate_anyscale_api_key(api_key)
         if is_valid:
             st.session_state["api_key"] = api_key
-            st.experimental_rerun()
+            st.rerun()
         elif not is_valid and api_key:
             st.error("Incorrect or invalid OpenAI API key")
             st.stop()
@@ -38,9 +38,10 @@ async def run_streamlit_app():
         if not question_input:
             st.error("Question input is empty")
         else:
-            context = run_query(question_input, "pep8_guidelines", 5)
-            result = await generate_answer(context, question_input)
-            st.write(result)
+            with st.spinner('Pondering your question...'):
+                context = run_query(question_input, "pep8_guidelines", 5)
+                result = await generate_answer(context, question_input)
+                st.write(result)
 
 async def generate_answer(context, user_question):
     config = AIConfigRuntime.load("app/roast_my_code.aiconfig.json")

@@ -12,7 +12,7 @@ async def run_streamlit_app():
         is_valid = validate_anyscale_api_key(api_key)
         if is_valid:
             st.session_state["api_key"] = api_key
-            st.experimental_rerun()
+            st.rerun()
         elif not is_valid and api_key:
             st.error("Incorrect or invalid OpenAI API key")
             st.stop()
@@ -32,10 +32,11 @@ async def run_streamlit_app():
         if not code_input: 
             st.error("Code input is empty")
         else:
-            config = AIConfigRuntime.load('app/roast_my_code.aiconfig.json')
-            review = await get_ai_generated_code_review(code_input, config)
-            st.session_state["review"] = review
-            st.session_state["savage_review"] = await get_savage_review(review, config)
+            with st.spinner('Reviewing your code...'):
+                config = AIConfigRuntime.load('app/roast_my_code.aiconfig.json')
+                review = await get_ai_generated_code_review(code_input, config)
+                st.session_state["review"] = review
+                st.session_state["savage_review"] = await get_savage_review(review, config)
     
     if "savage_review" in st.session_state and "review" in st.session_state:
         if savage_mode:

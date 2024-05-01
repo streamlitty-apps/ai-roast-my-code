@@ -25,7 +25,7 @@ async def ingest_data(directory, collection_name, chromadb_path):
 if __name__ == "__main__":
     directory = 'pep8_sections'
     collection_name = 'pep8_guidelines'
-    chromadb_path = 'db'
+    chromadb_path = 'chroma.db'
 
     import asyncio
     asyncio.run(ingest_data(directory, collection_name, chromadb_path))
