@@ -1,12 +1,23 @@
 import os
 import asyncio
 import streamlit as st
+from streamlit_option_menu import option_menu
 from aiconfig import AIConfigRuntime, InferenceOptions
 from helpers.openai_client import validate_anyscale_api_key
 
 
 async def run_streamlit_app():
     st.header("AI, Roast My Code!")
+
+    with st.sidebar:
+        selected = option_menu(
+            menu_title="Navigation Menu",
+            options=["Roast Code", "AIConfig"],
+            icons=["upload", "book"],
+            menu_icon="clipboard",
+            default_index=0,
+        )
+
     if "api_key" not in st.session_state:
         api_key = st.text_input("Enter your Anyscale API key", type="password")
         st.caption(
