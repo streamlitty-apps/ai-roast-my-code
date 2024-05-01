@@ -6,23 +6,24 @@ from views.roast_my_code_page import roast_my_code_page
 
 
 def run_streamlit_app():
-    st.header("AI, Roast My Code!")
+    st.set_page_config(page_title="AI, Roast My Code", page_icon=":clipboard:")
 
     with st.sidebar:
         selected = option_menu(
             menu_title="Navigation Menu",
-            options=["Roast My Code", "AIConfig"],
+            options=["Roast My Code", "About AIConfig"],
             icons=["upload", "book"],
             menu_icon="clipboard",
             default_index=0,
         )
 
     if selected == "Roast My Code":
+        st.header("AI, Roast My Code!")
         if not st.session_state.get("api_key"):
             initial_page_load()
         else:
             roast_my_code_page()
-    elif selected == "AIConfig":
+    elif selected == "About AIConfig":
         aiconfig_page()
 
 

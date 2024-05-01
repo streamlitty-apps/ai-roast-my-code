@@ -3,7 +3,6 @@ from helpers.openai_client import validate_anyscale_api_key
 
 
 def initial_page_load():
-    st.title("Welcome to Resume Fit!")
     if "api_key" not in st.session_state:
         st.session_state.api_key = None
 
