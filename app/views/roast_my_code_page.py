@@ -20,6 +20,8 @@ async def get_savage_review(review, config, inference_options):
 
 
 def roast_my_code_page():
+    st.header("AI, Roast My Code!")
+
     savage_mode = st.toggle("Savage Mode", True)
     with st.form("code_input_form"):
         code_input = st.text_area("Paste your code here to let the roasting begin")

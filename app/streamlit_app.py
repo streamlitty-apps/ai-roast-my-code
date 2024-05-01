@@ -18,7 +18,6 @@ def run_streamlit_app():
         )
 
     if selected == "Roast My Code":
-        st.header("AI, Roast My Code!")
         if not st.session_state.get("api_key"):
             initial_page_load()
         else:
