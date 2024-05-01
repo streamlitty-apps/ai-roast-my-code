@@ -11,7 +11,16 @@ Getting Started
 1. `git clone git@github.com:streamlitty-apps/ai-roast-my-code.git`
 2. `cd ai-roast-my-code`
 3. `pip install -r requirements.txt`
-4. `streamlit run app/streamlit_app.py`
+4. `streamlit run app/Roast_My_Code.py`
+
+Opening AIConfig Editor
+------------
+AIConfig Editor allows you to visually create and edit the prompt chains and model parameters that are stored as AIConfigs. You can also chain prompts and use global and local parameters in your prompts. Learn more about [AIConfig Editor](https://aiconfig.lastmileai.dev/docs/editor).
+
+1. Open your Terminal
+2. Run this command: `aiconfig edit --aiconfig-path=app/roast_my_code.aiconfig.json`
+
+This will open AIConfig Editor in your default browser at http://localhost:8080/. Here you can run and update the prompts locally, and when you run the prompts the outputs will render in the updated `roast_my_code.aiconfig.json` file.
 
 Setting Up Your Development Environment
 ------------
