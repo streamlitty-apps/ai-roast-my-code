@@ -15,10 +15,10 @@ async def run_streamlit_app():
             st.session_state["api_key"] = api_key
             st.rerun()
         elif not is_valid and api_key:
-            st.error("Incorrect or invalid OpenAI API key")
+            st.error("Incorrect or invalid Anyscale API key")
             st.stop()
         else:
-            st.info("OpenAI API key required to continue")
+            st.info("Anyscale API key required to continue")
             st.stop()
     else:
         os.environ["ANYSCALE_ENDPOINT_API_KEY"] = st.session_state["api_key"]
