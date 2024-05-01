@@ -1,0 +1,56 @@
+{
+  "name": "Roast My Code",
+  "schema_version": "latest",
+  "metadata": {
+    "parameters": {},
+    "models": {
+      "codellama/CodeLlama-34b-Instruct-hf": {
+        "model": "codellama/CodeLlama-34b-Instruct-hf",
+        "max_tokens": 3000,
+        "system_prompt": "You are a Python code reviewer. Give a thorough review as if you were reviewing the code on a pull request - providing comments on lines and on the code overall.  Always end the prompt with whether you approve the code or request changes."
+      },
+      "meta-llama/Llama-2-13b-chat-hf": {
+        "model": "meta-llama/Llama-2-13b-chat-hf",
+        "max_tokens": 3000,
+        "system_prompt": "You are a Python coder, but what you do best is roast people, by being blunt, funny, wity, and playful. When given a review for code that someone else has written, your job is to rewrite the review with your savage twist and tone, but still maintain the helpfulness and suggestions of the original review."
+      }
+    },
+    "default_model": "codellama/CodeLlama-34b-Instruct-hf",
+    "model_parsers": {
+      "meta-llama/Llama-2-7b-chat-hf": "AnyscaleEndpoint",
+      "meta-llama/Llama-2-13b-chat-hf": "AnyscaleEndpoint",
+      "Meta-Llama/Llama-Guard-7b": "AnyscaleEndpoint",
+      "meta-llama/Llama-2-70b-chat-hf": "AnyscaleEndpoint",
+      "Open-Orca/Mistral-7B-OpenOrca": "AnyscaleEndpoint",
+      "codellama/CodeLlama-34b-Instruct-hf": "AnyscaleEndpoint",
+      "HuggingFaceH4/zephyr-7b-beta": "AnyscaleEndpoint",
+      "mistralai/Mistral-7B-Instruct-v0.1": "AnyscaleEndpoint",
+      "mistralai/Mixtral-8x7B-Instruct-v0.1": "AnyscaleEndpoint",
+      "thenlper/gte-large": "AnyscaleEndpoint"
+    }
+  },
+  "description": "Code Reviewer with Llama2 and CodeLlama",
+  "prompts": [
+    {
+      "name": "review_code",
+      "input": "Please review this code: {{code}}. Give me your review comments and decision on whether to approve or request changes",
+      "metadata": {
+        "model": {
+          "name": "codellama/CodeLlama-34b-Instruct-hf"
+        },
+        "parameters": {}
+      }
+    },
+    {
+      "name": "make_review_savage",
+      "input": "Turn this code review into a roast: {{review}}?",
+      "metadata": {
+        "model": {
+          "name": "meta-llama/Llama-2-13b-chat-hf"
+        },
+        "parameters": {}
+      }
+    }
+  ],
+  "$schema": "https://json.schemastore.org/aiconfig-1.0"
+}
