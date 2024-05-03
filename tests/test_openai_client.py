@@ -13,7 +13,9 @@ class TestValidateAnyscaleKey(unittest.TestCase):
         result = validate_anyscale_api_key("valid_api_key")
 
         self.assertTrue(result)
-        mock_openai.assert_called_once_with(api_key="valid_api_key", base_url="https://api.endpoints.anyscale.com/v1")
+        mock_openai.assert_called_once_with(
+            api_key="valid_api_key", base_url="https://api.endpoints.anyscale.com/v1"
+        )
         mock_client.models.list.assert_called_once()
 
     @patch("app.helpers.openai_client.OpenAI")
@@ -25,7 +27,9 @@ class TestValidateAnyscaleKey(unittest.TestCase):
         result = validate_anyscale_api_key("invalid_api_key")
 
         self.assertFalse(result)
-        mock_openai.assert_called_once_with(api_key="valid_api_key", base_url="https://api.endpoints.anyscale.com/v1")
+        mock_openai.assert_called_once_with(
+            api_key="valid_api_key", base_url="https://api.endpoints.anyscale.com/v1"
+        )
         mock_client.models.list.assert_called_once()
 
     def test_empty_api_key(self):

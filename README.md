@@ -57,6 +57,11 @@ Below is a breakdown of the files in this project, with additional information t
     ├── app/
     │   ├── helpers/
     │   │   └── openai_client.py <- Helper module for interacting with OpenAI services
+    │   ├── views/
+    │   │   └── aiconfig_page.py <- The page detailing the aiconfig file for this app
+    │   │   └── roast_my_code_page.py <- The page where users get feedback on their code
+    │   │   └── initial_page_load.py <- What users see on the initial page load
+    │   └── rost_my_code.aiconfig.json <- The configuration file for aiconfig
     │   └── streamlit_app.py     <- This is the main file that runs the Streamlit app
     |
     ├── tests/
