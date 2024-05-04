@@ -61,6 +61,7 @@ Below is a breakdown of the files in this project, with additional information t
     │   │   └── aiconfig_page.py <- The page detailing the aiconfig file for this app
     │   │   └── roast_my_code_page.py <- The page where users get feedback on their code
     │   │   └── initial_page_load.py <- What users see on the initial page load
+    |   |   └── about_us_page.py <- The page providing information about the team and project
     │   └── rost_my_code.aiconfig.json <- The configuration file for aiconfig
     │   └── streamlit_app.py     <- This is the main file that runs the Streamlit app
     |
