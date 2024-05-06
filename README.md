@@ -11,7 +11,7 @@ Getting Started
 1. `git clone git@github.com:streamlitty-apps/ai-roast-my-code.git`
 2. `cd ai-roast-my-code`
 3. `pip install -r requirements.txt`
-4. `streamlit run app/Roast_My_Code.py`
+4. `streamlit run app/streamlit_app.py`
 
 Opening AIConfig Editor
 ------------
@@ -73,11 +73,10 @@ Below is a breakdown of the files in this project, with additional information t
     │   └── roast_my_code.aiconfig.json <- The configuration file for aiconfig
     │   └── streamlit_app.py     <- This is the main file that runs the Streamlit app
     │   ├── chromadb_utils/
-    │   |   ├── chroma.db/ <- Files generated from running ingest.py script containing created collection
+    │   |   ├── chroma.db/ <- Files generated from running ingest.py script containing 
     │   |   ├── pep8_sections/ <- Contains txt files with the contents of the PEP 8 documentation
     │   |   ├── ingest.py <- Script for RAG data ingestion & indexing with chromadb
     │   |   ├── chromadb_helpers.py <- Helper module for interacting with chromadb for RAG
-    |
     ├── tests/
     │   └── test_openai_client.py <- Test file for the openai_client module
     |
