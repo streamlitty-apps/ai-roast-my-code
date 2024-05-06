@@ -1,27 +1,11 @@
 import streamlit as st
 import os
-import asyncio
 from helpers.openai_client import validate_anyscale_api_key
 from aiconfig import AIConfigRuntime
 from chromadb_utils.chromadb_helpers import run_query
 
-async def run_streamlit_app():
+async def ask_python_questions():
     st.header("AI, Answer My Python Questions!")
-    if "api_key" not in st.session_state:
-        api_key = st.text_input("Enter your Anyscale API key", type="password")
-        st.caption("You can get your key from https://app.endpoints.anyscale.com/docs (https://app.endpoints.anyscale.com/credentials)")
-        is_valid = validate_anyscale_api_key(api_key)
-        if is_valid:
-            st.session_state["api_key"] = api_key
-            st.rerun()
-        elif not is_valid and api_key:
-            st.error("Incorrect or invalid Anyscale API key")
-            st.stop()
-        else:
-            st.info("Anyscale API key required to continue")
-            st.stop()
-    else:
-        os.environ["ANYSCALE_ENDPOINT_API_KEY"] = st.session_state["api_key"]
 
     st.info("🔍 **Leveraging PEP 8 Standards**\n\n"
                     "To ensure that responses to Python-related questions adhere to industry best practices, "
@@ -51,7 +35,3 @@ async def generate_answer(context, user_question):
     }
     response = await config.run("python_help", params=params)
     return response[0].data
-
-
-if __name__ == "__main__":
-    asyncio.run(run_streamlit_app())
