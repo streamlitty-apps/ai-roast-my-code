@@ -13,6 +13,15 @@ Getting Started
 3. `pip install -r requirements.txt`
 4. `streamlit run app/streamlit_app.py`
 
+Opening AIConfig Editor
+------------
+AIConfig Editor allows you to visually create and edit the prompt chains and model parameters that are stored as AIConfigs. You can also chain prompts and use global and local parameters in your prompts. Learn more about [AIConfig Editor](https://aiconfig.lastmileai.dev/docs/editor).
+
+1. Open your Terminal
+2. Run this command: `aiconfig edit --aiconfig-path=app/roast_my_code.aiconfig.json`
+
+This will open AIConfig Editor in your default browser at http://localhost:8080/. Here you can run and update the prompts locally, and when you run the prompts the outputs will render in the updated `roast_my_code.aiconfig.json` file.
+
 Setting Up Your Development Environment
 ------------
 
@@ -61,9 +70,13 @@ Below is a breakdown of the files in this project, with additional information t
     │   │   └── aiconfig_page.py <- The page detailing the aiconfig file for this app
     │   │   └── roast_my_code_page.py <- The page where users get feedback on their code
     │   │   └── initial_page_load.py <- What users see on the initial page load
-    │   └── rost_my_code.aiconfig.json <- The configuration file for aiconfig
+    │   └── roast_my_code.aiconfig.json <- The configuration file for aiconfig
     │   └── streamlit_app.py     <- This is the main file that runs the Streamlit app
-    |
+    │   ├── chromadb_utils/
+    │   |   ├── chroma.db/ <- Files generated from running ingest.py script containing 
+    │   |   ├── pep8_sections/ <- Contains txt files with the contents of the PEP 8 documentation
+    │   |   ├── ingest.py <- Script for RAG data ingestion & indexing with chromadb
+    │   |   ├── chromadb_helpers.py <- Helper module for interacting with chromadb for RAG
     ├── tests/
     │   └── test_openai_client.py <- Test file for the openai_client module
     |

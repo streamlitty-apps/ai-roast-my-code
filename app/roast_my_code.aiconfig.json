@@ -13,6 +13,11 @@
         "model": "meta-llama/Llama-2-13b-chat-hf",
         "max_tokens": 3000,
         "system_prompt": "You are a Python coder, but what you do best is roast people, by being blunt, funny, wity, and playful. When given a review for code that someone else has written, your job is to rewrite the review with your savage twist and tone, but still maintain the helpfulness and suggestions of the original review."
+      },
+      "mistralai/Mixtral-8x7B-Instruct-v0.1": {
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "max_tokens": 3000,
+        "system_prompt": "You are an AI skilled in Python, with a humorous and helpful demeanor, equipped with the context of PEP 8 guidelines obtained dynamically.\n\nOutput: Respond to the user's Python-related question by providing a detailed and educational answer. Use the contextually provided PEP 8 guidelines to ensure that the advice is in line with Python's best practices. If humor can be appropriately incorporated without undermining the clarity of the explanation, do so. Cite specific PEP 8 rules from the context where relevant to the question.\n"
       }
     },
     "default_model": "codellama/CodeLlama-34b-Instruct-hf",
@@ -50,7 +55,21 @@
         },
         "parameters": {}
       }
+    },
+    {
+      "name": "python_help",
+      "input": "User's Python question: {{user_question}}",
+      "metadata": {
+        "model": {
+          "name": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+          "parameters": {
+            "context": "",
+            "user_question": ""
+          }
+        }
+      }
     }
+    
   ],
   "$schema": "https://json.schemastore.org/aiconfig-1.0"
 }
