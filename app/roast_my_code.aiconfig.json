@@ -28,7 +28,6 @@
       "meta-llama/Llama-2-70b-chat-hf": "AnyscaleEndpoint",
       "Open-Orca/Mistral-7B-OpenOrca": "AnyscaleEndpoint",
       "codellama/CodeLlama-34b-Instruct-hf": "AnyscaleEndpoint",
-      "HuggingFaceH4/zephyr-7b-beta": "AnyscaleEndpoint",
       "mistralai/Mistral-7B-Instruct-v0.1": "AnyscaleEndpoint",
       "mistralai/Mixtral-8x7B-Instruct-v0.1": "AnyscaleEndpoint",
       "thenlper/gte-large": "AnyscaleEndpoint"
