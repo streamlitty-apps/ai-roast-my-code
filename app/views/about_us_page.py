@@ -1,8 +1,10 @@
 import streamlit as st
 
+
 def about_us_page():
-    st.title('About Us 👋')
-    st.write("""
+    st.title("About Us 👋")
+    st.write(
+        """
         **Empowering Coders with Humor and Expertise**
 
         We are a dynamic team of both developers and educators driven 
@@ -29,4 +31,5 @@ def about_us_page():
         empowered and motivated to explore the vast possibilities of coding.
 
         Join us on this journey to redefine coding education—one roast at a time.    
-    """)
+    """
+    )

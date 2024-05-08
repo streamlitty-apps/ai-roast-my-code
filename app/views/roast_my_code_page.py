@@ -30,12 +30,16 @@ async def roast_my_code_page():
         if not code_input:
             st.error("Code input is empty")
         else:
-            with st.spinner('Preparing the roast...'):
+            with st.spinner("Preparing the roast..."):
                 config = AIConfigRuntime.load("app/roast_my_code.aiconfig.json")
                 inference_options = InferenceOptions(stream=True)
-                review = await get_ai_generated_code_review(code_input, config, inference_options)
+                review = await get_ai_generated_code_review(
+                    code_input, config, inference_options
+                )
                 st.session_state["review"] = review
-                st.session_state["savage_review"] = await get_savage_review(review, config, inference_options)
+                st.session_state["savage_review"] = await get_savage_review(
+                    review, config, inference_options
+                )
 
     if "savage_review" in st.session_state and "review" in st.session_state:
         if savage_mode:

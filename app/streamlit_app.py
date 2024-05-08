@@ -1,11 +1,12 @@
+import asyncio
 import streamlit as st
 from streamlit_option_menu import option_menu
-import asyncio
 from views.aiconfig_page import aiconfig_page
 from views.initial_page_load import initial_page_load
 from views.roast_my_code_page import roast_my_code_page
 from views.about_us_page import about_us_page
 from views.ask_python_questions import ask_python_questions
+
 
 async def run_streamlit_app():
     st.set_page_config(page_title="AI, Roast My Code", page_icon=":clipboard:")
@@ -13,7 +14,12 @@ async def run_streamlit_app():
     with st.sidebar:
         selected = option_menu(
             menu_title="Navigation Menu",
-            options=["Roast My Code", "Ask Python Questions", "About AIConfig", "About Us"],
+            options=[
+                "Roast My Code",
+                "Ask Python Questions",
+                "About AIConfig",
+                "About Us",
+            ],
             icons=["upload", "book", "people"],
             menu_icon="clipboard",
             default_index=0,
