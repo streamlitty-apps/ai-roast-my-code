@@ -1,11 +1,16 @@
-import asyncio
-import streamlit as st
-from streamlit_option_menu import option_menu
-from views.aiconfig_page import aiconfig_page
-from views.initial_page_load import initial_page_load
-from views.roast_my_code_page import roast_my_code_page
-from views.about_us_page import about_us_page
-from views.ask_python_questions import ask_python_questions
+import sys
+
+__import__("pysqlite3")
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
+import asyncio  # noqa: E402
+import streamlit as st  # noqa: E402
+from streamlit_option_menu import option_menu  # noqa: E402
+from views.aiconfig_page import aiconfig_page  # noqa: E402
+from views.initial_page_load import initial_page_load  # noqa: E402
+from views.roast_my_code_page import roast_my_code_page  # noqa: E402
+from views.about_us_page import about_us_page  # noqa: E402
+from views.ask_python_questions import ask_python_questions  # noqa: E402
 
 
 async def run_streamlit_app():

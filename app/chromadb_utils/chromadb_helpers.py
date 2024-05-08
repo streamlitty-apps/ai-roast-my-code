@@ -1,8 +1,4 @@
-import sys
 import chromadb
-
-__import__("pysqlite3")
-sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 
 def run_query(query, collection_name, k):
